@@ -1,4 +1,4 @@
-(function() {
+(function(namespace) {
 	function Test(name, fn) {
 		this.name = name;
 		this.fn = fn;
@@ -22,5 +22,5 @@
 		}
 	}
 
-	Simple.Test = Test;
-})();
+	namespace.Test = Test;
+})(Simple);

@@ -1,4 +1,4 @@
-(function() {
+(function(namespace) {
 	function Context(name, scope) {
 		this.name = name;
 		this.setup = null;
@@ -50,5 +50,5 @@
 		return results;
 	}
 
-	Simple.Context = Context;
-})();
+	namespace.Context = Context;
+})(Simple);
