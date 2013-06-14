@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Scoped tests</title>
+		<!-- <script src="../Simple.js"></script> -->
+		<script src="../src/Global.js"></script>
+		<script src="../src/Test.js"></script>
+		<script src="../src/Context.js"></script>
+		<script>
+
+			//Create a context, with a scope
+			var context = new Simple.Context("Scoped examples", {
+				a:1,
+				b:2
+			});
+			
+			//Add tests to the context
+			context.add(
+				new Simple.Test("A is one", function() {
+					return this.a == 1;
+				}),
+				new Simple.Test("B is not three", function() {
+					return this.b != 3;
+				}),
+				new Simple.Test("C isn't", function() {
+					return !this.c
+				})
+			);
+
+		</script>
+	</head>
+	<body>
+		<h1>Scoped tests</h1>
+		<script>
+			context.run();
+
+			var results = context.getResults();
+			document.write(context.name);
+			for(var i in results)
+				document.write("<br/>"+i+": "+results[i])
+		</script>
+	</body>
+</html>
