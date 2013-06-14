@@ -1,0 +1,46 @@
+body
+{
+	font-family:sans-serif;
+}
+
+section
+{
+	background-color:#CCC;
+	padding:1em;
+	margin:1em;
+}
+
+section header
+{
+	font-size:1.5em;
+}
+
+section table
+{
+	background-color:white;
+}
+
+td.test-result
+{
+	width:4em;
+	text-align:center;
+}
+td.test-result.passed
+{
+	background-color:#AFA;
+}
+
+td.test-result.failed
+{
+	background-color:#FAA;
+}
+
+td.test-result.undefined
+{
+	background-color:#EE0;
+}
+
+table
+{
+	width:100%;
+}
