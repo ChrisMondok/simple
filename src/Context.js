@@ -11,21 +11,22 @@
 		for(var i = 0; i < arguments.length; i++)
 		{
 			var test = arguments[i];
-			if(test instanceof Simple.Test)
+			if(test instanceof Simple.Test || test instanceof Context)
 				this.tests.push(test);
 			else
 				throw "argument (" + test + ") is not a test";
 		}
 	}
 
-	Context.prototype.run = function() {
+	Context.prototype.run = function(scope) {
+		var scope = this.scope || scope;
 		for(var t in this.tests)
 		{
 			if(this.setup)
-				this.setup.bind(this.scope)();
-			this.tests[t].run(this.scope);
+				this.setup.bind(scope)();
+			this.tests[t].run(scope);
 			if(this.teardown)
-				this.teardown.bind(this.scope)();
+				this.teardown.bind(scope)();
 		}
 	}
 
@@ -35,14 +36,20 @@
 		for(var i = 0; i < this.tests.length; i++)
 		{
 			var test = this.tests[i];
-			var result = undefined;
-			if(test.passed === true)
-				result = "passed";
-			else
-				if(test.passed === false)
-					result = "failed"
+			if(test instanceof Simple.Test)
+			{
+				var result = undefined;
+				if(test.passed === true)
+					result = "passed";
 				else
-					result = test.passed;
+					if(test.passed === false)
+						result = "failed"
+					else
+						result = test.passed;
+			}
+			else
+				if(test instanceof Simple.Context)
+					result = test.getResults();
 
 			results[this.tests[i].name] = result;
 		}

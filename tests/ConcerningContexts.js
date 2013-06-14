@@ -19,6 +19,17 @@ contextTests.add(
 		test.run();
 
 		return test.passed;
+	}),
+	new Simple.Test("contexts should be able to contain other contexts", function() {
+		var outerContext = new Simple.Context("Outer context");
+		var innerContext = new Simple.Context("Inner context");
+		outerContext.add(innerContext);
+		outerContext.run();
+		var results = outerContext.getResults();
+		for(var key in results)
+			if(results[key] != "passed")
+				return false;
+		return true;
 	})
 );
 
