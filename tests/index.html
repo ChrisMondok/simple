@@ -4,10 +4,14 @@
 		<title>The Meta Tests</title>
 		<link rel="stylesheet" href="tests.css"/>
 		<script src="../Simple.js"></script>
+		<script src="TestObject.js"></script>
 		<script src="ConcerningSimple.js"></script>
+		<script src="ConcerningScope.js"></script>
+		<script src="ConcerningSetup.js"></script>
+		<script src="ConcerningContexts.js"></script>
 		<script>
 			function runTests() {
-				var contexts = [frameworkTestContext, testsWithScope, testsWithSetupAndTeardown];
+				var contexts = [frameworkTestContext, testsWithScope, testsWithSetupAndTeardown, contextTests];
 				for(var i in contexts)
 				{
 					contexts[i].run();
