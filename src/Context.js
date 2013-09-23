@@ -19,14 +19,13 @@
 	}
 
 	Context.prototype.run = function() {
-		for(var t in this.tests)
-		{
+		this.tests.forEach(function(test) {
 			if(this.setup)
-				this.setup.bind(this.scope)();
-			this.tests[t].run(this.scope);
+				this.setup.call(this.scope);
+			test.run(this.scope);
 			if(this.teardown)
-				this.teardown.bind(this.scope)();
-		}
+				this.teardown.call(this.scope);
+		}, this);
 	}
 
 	Context.prototype.getResults = function() {
