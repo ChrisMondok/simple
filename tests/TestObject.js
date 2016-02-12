@@ -5,9 +5,10 @@ function TestObject() {
 
 TestObject.prototype.getValue = function() {
 	return this.value;
-}
+};
 
 TestObject.prototype.increment = function() {
 	this.counter++;
-}
+};
 
+module.exports = TestObject;

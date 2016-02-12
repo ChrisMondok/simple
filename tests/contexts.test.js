@@ -1,8 +1,10 @@
-var contextTests = new Simple.Context("Context Tests")
+const Simple = require('../Simple.js');
+
+var contextTests = new Simple.Context("Context Tests");
 contextTests.add(
 	new Simple.Test("a scope should be made when one isn't provided", function() {
 		var ctx = new Simple.Context("Scopeless context");
-		ctx.setup = function() {this.x = "set"};
+		ctx.setup = function() {this.x = "set";};
 		ctx.add(
 			new Simple.Test("Value is set", function() {
 				return this.x == "set";
@@ -22,3 +24,4 @@ contextTests.add(
 	})
 );
 
+module.exports = contextTests;

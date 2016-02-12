@@ -1,3 +1,4 @@
+const Simple = require('../Simple.js');
 var frameworkTestContext = new Simple.Context("Basic Tests");
 frameworkTestContext.add(
 	new Simple.Test("framework is defined", function() {
@@ -25,4 +26,4 @@ frameworkTestContext.add(
 	})
 );
 
-
+module.exports = frameworkTestContext;
