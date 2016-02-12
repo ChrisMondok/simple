@@ -7,11 +7,11 @@
     "example": "examples",
     "test": "tests"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "colors": "^1.1.2",
     "walk": "^2.3.9"
   },
-  "devDependencies": {},
   "scripts": {
 	"install": "make",
     "test": "node test.js"
