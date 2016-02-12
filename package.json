@@ -1,0 +1,29 @@
+{
+  "name": "simple",
+  "version": "1.0.0",
+  "description": "A barebones unit testing framework",
+  "main": "Simple.js",
+  "directories": {
+    "example": "examples",
+    "test": "tests"
+  },
+  "dependencies": {
+    "colors": "^1.1.2",
+    "walk": "^2.3.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+	"install": "make",
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChrisMondok/simple.git"
+  },
+  "author": "Chris Mondok",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChrisMondok/simple/issues"
+  },
+  "homepage": "https://github.com/ChrisMondok/simple#readme"
+}
